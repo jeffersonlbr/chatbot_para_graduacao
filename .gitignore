@@ -1,0 +1,29 @@
+# Arquivo de variáveis de ambiente
+.env
+
+# Ambientes virtuais
+venv/
+env/
+
+# Arquivos compilados Python
+*.pyc
+__pycache__/
+
+# Configurações do VSCode
+.vscode/
+
+# Arquivos de log
+*.log
+
+# Arquivos de cache
+*.cache
+
+# Arquivos do macOS
+.DS_Store
+
+# Arquivos do Windows
+Thumbs.db
+
+# Outros arquivos temporários ou de build
+*.tmp
+*.bak
