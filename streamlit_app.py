@@ -57,7 +57,7 @@ def processar_pergunta(pergunta, mensagens_previas):
     mensagens_previas.append({"role": "user", "content": pergunta})
     try:
         resposta = openai.ChatCompletion.create(
-            engine=nome_da_implantacao,
+            deployment_id=nome_da_implantacao,  # 'deployment_id' em vez de 'engine'
             messages=mensagens_previas,
             max_tokens=500,
             temperature=0.2,
