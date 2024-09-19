@@ -4,6 +4,4 @@ PyPDF2
 python-docx
 nltk
 requests
-pillow
-lxml
 
