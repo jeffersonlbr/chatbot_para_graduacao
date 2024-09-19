@@ -21,13 +21,6 @@ openai.api_version = st.secrets["AZURE_OPENAI_API_VERSION"]
 # implantação--deployment_name
 nome_da_implantacao = 'jjf'
 
-# APENAS EM STREAMLIT_APP
-## Definie headers de autorização para o Streamlit Cloud Secrets
-headers = {
-    "Authorization": f"Bearer {st.secrets['AZURE_OPENAI_API_KEY']}",
-    "Content-Type": "application/json"
-}
-
 # Caminho da pasta que contem os documentos de treino
 pasta_arquivos = Path('documentos')
 

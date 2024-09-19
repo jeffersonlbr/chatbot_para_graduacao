@@ -1,11 +1,10 @@
 # Arquivo de variáveis de ambiente
 .env
+.streamlit/secrets.toml
 
 # Ambientes virtuais
 venv/
 env/
-*.toml
-.toml
 
 # Arquivos compilados Python
 *.pyc
@@ -26,3 +25,4 @@ Thumbs.db
 # Outros arquivos temporários ou de build
 *.tmp
 *.bak
+
