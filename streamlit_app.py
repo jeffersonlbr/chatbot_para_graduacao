@@ -3,6 +3,7 @@ import streamlit as st
 import PyPDF2
 import docx
 import openai
+import docx2txt
 from openai import OpenAIError
 from pathlib import Path
 import nltk
@@ -39,9 +40,7 @@ def ler_conteudo_arquivo(caminho_arquivo):
                     if texto_pagina:
                         conteudo += texto_pagina
         elif ext == '.docx':
-            doc = docx.Document(caminho_arquivo)
-            for para in doc.paragraphs:
-                conteudo += para.text + '\n'
+            conteudo = docx2txt.process(str(caminho_arquivo))
         return {'nome': caminho_arquivo.name, 'conteudo': conteudo}
     except Exception as e:
         st.error(f'Erro ao ler o arquivo {caminho_arquivo.name}: {e}')
