@@ -1,23 +1,22 @@
-import streamlit as st
 import os
-import requests
+import streamlit as st
 import PyPDF2
 import docx
 import openai
 from openai import OpenAIError
-from dotenv import load_dotenv
 from pathlib import Path
 import nltk
 from nltk.tokenize import sent_tokenize
 
+# Baixar recursos necessários do NLTK (se ainda não baixados)
 nltk.download('punkt', quiet=True)
-load_dotenv()
+
 
 # Configuração da API OpenAI usando secrets do Streamlit
 openai.api_type = "azure"
-openai.api_key = st.secrets["AZURE_OPENAI_API_KEY"]
-openai.api_base = st.secrets["AZURE_OPENAI_API_BASE"]
-openai.api_version = st.secrets["AZURE_OPENAI_API_VERSION"]
+openai.api_key = os.environ.get("AZURE_OPENAI_API_KEY")
+openai.api_base = os.environ.get("AZURE_OPENAI_API_BASE")
+openai.api_version = os.environ.get("AZURE_OPENAI_API_VERSION")
 
 # implantação--deployment_name
 nome_da_implantacao = 'jjf'
