@@ -10,7 +10,6 @@ from nltk.tokenize import sent_tokenize
 
 # Baixar recursos necessários do NLTK (se ainda não baixados)
 nltk.download('punkt', quiet=True)
-nltk.download('punkt_tab', quiet=True)
 
 # Configuração da API OpenAI usando secrets do Streamlit
 openai.api_type = "azure"
