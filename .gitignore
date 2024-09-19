@@ -4,6 +4,8 @@
 # Ambientes virtuais
 venv/
 env/
+*.toml
+.toml
 
 # Arquivos compilados Python
 *.pyc
