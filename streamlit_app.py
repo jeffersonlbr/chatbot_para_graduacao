@@ -60,21 +60,21 @@ def processar_pergunta(pergunta, mensagens_previas):
             engine=nome_da_implantacao,
             messages=mensagens_previas,
             max_tokens=500,
-            temperature=0.2,  # respostas mais precisas
+            temperature=0.2,
             n=1,
         )
         resposta_texto = resposta.choices[0].message.content.strip()
         # Adiciona a resposta do assistente ao histórico
         mensagens_previas.append({"role": "assistant", "content": resposta_texto})
         
-        # Captura informações de uso de tokens
+        # Capturar informações de uso de tokens
         uso_tokens = resposta.get('usage', {})
         prompt_tokens = uso_tokens.get('prompt_tokens', 0)
         completion_tokens = uso_tokens.get('completion_tokens', 0)
         total_tokens = uso_tokens.get('total_tokens', 0)
         
         # Calcular o custo (exemplo: $0.002 por 1.000 tokens)
-        custo_por_1000_tokens = 0.002  # descobrir o real preço
+        custo_por_1000_tokens = 0.002  # Atualize conforme o preço real
         custo = (total_tokens / 1000) * custo_por_1000_tokens
         
         # Armazenar o uso e custo na sessão
@@ -95,8 +95,10 @@ def processar_pergunta(pergunta, mensagens_previas):
         }
         
         return resposta_texto, mensagens_previas
-    except OpenAIError as e:
-        return f"Erro ao acessar a API da OpenAI: {e}", mensagens_previas
+    except Exception as e:
+        st.error(f"Ocorreu um erro ao processar sua pergunta: {e}")
+        return "Desculpe, ocorreu um erro ao processar sua pergunta.", mensagens_previas
+
 
 # Lendo e armazenando o conteúdo dos arquivos com seus nomes e resumos
 arquivos_conteudos = []
