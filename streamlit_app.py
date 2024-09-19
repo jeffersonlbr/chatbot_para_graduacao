@@ -11,6 +11,7 @@ import nltk
 from nltk.tokenize import sent_tokenize
 
 nltk.download('punkt', quiet=True)
+load_dotenv()
 
 # Configuração da API OpenAI usando secrets do Streamlit
 openai.api_type = "azure"
