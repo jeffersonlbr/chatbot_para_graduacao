@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import requests
 import PyPDF2
 import docx
 import openai
@@ -10,7 +11,6 @@ import nltk
 from nltk.tokenize import sent_tokenize
 
 nltk.download('punkt', quiet=True)
-load_dotenv()
 
 # Configuração da API OpenAI usando secrets do Streamlit
 openai.api_type = "azure"
@@ -20,6 +20,13 @@ openai.api_version = st.secrets["AZURE_OPENAI_API_VERSION"]
 
 # implantação--deployment_name
 nome_da_implantacao = 'jjf'
+
+# APENAS EM STREAMLIT_APP
+## Definie headers de autorização para o Streamlit Cloud Secrets
+headers = {
+    "Authorization": f"Bearer {st.secrets['AZURE_OPENAI_API_KEY']}",
+    "Content-Type": "application/json"
+}
 
 # Caminho da pasta que contem os documentos de treino
 pasta_arquivos = Path('documentos')
